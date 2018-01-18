@@ -3,8 +3,11 @@
 // Some of the methods we discussed in the previous assignment might be helpful here, but you should also use the jQuery docs and Google if you're not sure what to do here. Researching on your own is a key skill, and it'll get easier with practice.
 
 $(function () {
-  let mainPic = $('.hero');
+  //let mainPic = $('.hero');
   $('.thumbnails').click(function(event){
     console.log('Thumbnail clicked');
+  $('.hero').html(function(event) {
+
+  }) 
   })
 })
