@@ -19,4 +19,9 @@ $(function (){
     let add = `<li><span class="shopping-item">${$('form input').val()}</span> <div class="shopping-item-controls"> <button class="shopping-item-toggle"> <span class="button-label">check</span></button> <button class="shopping-item-delete"> <span class="button-label">delete</span></button></div></li>`;
     $('.shopping-list').append(add);
   })
+  $('.shopping-item-toggle').click(function(event) {
+    console.log(event);
+$('.shopping-item').toggleClass('shopping-item__checked');
+  })
 });
+
