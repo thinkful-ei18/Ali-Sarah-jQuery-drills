@@ -1,16 +1,31 @@
 'use strict';
 
 $(function (){
-  $("form button").click(function(event){
+  const shoppingList = $('.js-shopping-list');
+  $('#js-shopping-list-form').on('submit', function(event){
     event.preventDefault();
-    console.log($('form input').val());
-    let add = `<li><span class="shopping-item">${$('form input').val()}</span> <div class="shopping-item-controls"> <button class="shopping-item-toggle"> <span class="button-label">check</span></button> <button class="shopping-item-delete"> <span class="button-label">delete</span></button></div></li>`;
-    $('.shopping-list').append(add);
-  })
-  $('ul').on('click', '.shopping-item-toggle', function (event) {
-    $(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
+    let add = (
+      `<li class="js-shopping-list-item">
+        <span class="shopping-item">${ $('.js-shopping-list-entry').val() }</span>
+        <div class="shopping-item-controls">
+          <button class="shopping-item-toggle">
+            <span class="button-label">check</span>
+          </button>
+          <button class="shopping-item-delete">
+            <span class="button-label">delete</span>
+          </button>
+        </div>
+      </li>`
+    );
+    shoppingList.append(add);
   });
-  $('ul').on('click', '.shopping-item-delete', function (event) {
-    $(this).closest('li').remove();
-  });
+
+  shoppingList
+    .on('click', '.shopping-item-toggle', function (event) {
+      $(event.target)
+        .closest('.js-shopping-list-item').find('.shopping-item').toggleClass('shopping-item__checked');
+    })
+    .on('click', '.shopping-item-delete', function (event) {
+      $(event.target).closest('.js-shopping-list-item').remove();
+    });
 });
