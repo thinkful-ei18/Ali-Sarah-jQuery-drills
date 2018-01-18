@@ -5,8 +5,8 @@
 
 $(function () {
   //let mainPic = $('.hero');
-  $('.thumbnails').click(function(event){
+  $('.thumbnail').click(function(event){
     $('.hero').html($(event.currentTarget).html());
-    console.log($(this).html());
-  });
+    console.log($(event.currentTarget).html());
+});
 });
