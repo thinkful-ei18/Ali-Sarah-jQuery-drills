@@ -1,3 +1,4 @@
+'use strict';
 // In this challenge, you'll re-implement FizzBuzz. This time you'll create an event listener that listens for when a user submits a form indicating how high to count. This event should cause the program to create the FizzBuzz sequence up to the number requested by the user.
 
 // For each element in the FizzBuzz sequence, your code should insert an element into the .js-results div that looks like this:
@@ -23,9 +24,23 @@
 // Your function should append the resulting HTML to the .js-results DOM element.
 
 $(function() {
-    $('#number-chooser').click(function(event) {
-        event.preventDefault();
-console.log('click');
-console.log($('#number-choice').val());
-    })
-})
+  $('#number-chooser').click(function(event) {
+    event.preventDefault();
+    console.log('click');
+    let num = $('#number-choice').val();
+      const fizzbuzz = '<div class="fizz-buzz-item fizzbuzz"> <span>fizzbuzz</span> </div>';
+    console.log(num);
+    for (let i = 0; i<=num; i++) {
+      if (i % 15 === 0) {
+        console.log('fizzbuzz');
+          $('.js-results').html(fizzbuzz);
+      } else if (i % 5 === 0) {
+        console.log('buzz');
+      } else if (i % 3 === 0) {
+        console.log('fizz');
+      } else {
+        console.log(i);
+      }
+    }
+  });
+});
