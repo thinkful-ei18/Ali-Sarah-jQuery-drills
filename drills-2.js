@@ -28,19 +28,27 @@ $(function() {
     event.preventDefault();
     console.log('click');
     let num = $('#number-choice').val();
+    let finalFizzBuzz = '';
       const fizzbuzz = '<div class="fizz-buzz-item fizzbuzz"> <span>fizzbuzz</span> </div>';
+      const buzz = '<div class="fizz-buzz-item buzz"> <span>buzz</span> </div>';
+      const fizz = '<div class="fizz-buzz-item fizz"> <span>fizz</span> </div>';
+      let number = '<div class="fizz-buzz-item"> <span>1</span> </div>'
     console.log(num);
     for (let i = 0; i<=num; i++) {
       if (i % 15 === 0) {
         console.log('fizzbuzz');
-          $('.js-results').html(fizzbuzz);
+          finalFizzBuzz += fizzbuzz;
       } else if (i % 5 === 0) {
         console.log('buzz');
+        finalFizzBuzz += buzz;
       } else if (i % 3 === 0) {
         console.log('fizz');
+        finalFizzBuzz += fizz
       } else {
         console.log(i);
+        finalFizzBuzz += `<div class="fizz-buzz-item"> <span> ${i}</span> </div>`;
       }
-    }
+    } 
+    $('.js-results').html(finalFizzBuzz);
   });
 });
